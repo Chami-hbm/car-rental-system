@@ -1,3 +1,4 @@
 mysql-connector-python==8.0.28
-stdiomask==1.0.1
+stdiomask==1.0.1   # ← Correct spelling
 bcrypt==4.0.1
+pytest==8.4.2

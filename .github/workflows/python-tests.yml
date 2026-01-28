@@ -1,19 +1,31 @@
 name: Python Tests
 on: [push, pull_request]
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.9'  # Keep using 3.9
+    
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest
-        pip install -r requirements.txt
+        # Fix common pip cache issues
+        pip cache purge
+        
+        # Install with explicit version constraints
+        pip install "mysql-connector-python==8.0.28"
+        pip install "stdiomask==1.0.1"
+        pip install "bcrypt==4.0.1"
+        pip install "pytest==8.4.2"
+    
     - name: Run tests
       run: |
         python -m pytest tests/ -v
