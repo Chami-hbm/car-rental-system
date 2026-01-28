@@ -1,0 +1,5 @@
+mysql-connector-python==9.2.0        # MySQL database connectivity
+python-dotenv==1.0.1                 # Load .env files
+stdiomask==0.0.6                     # Password masking input
+bcrypt==4.2.1                        # Password hashing/encryption
+pyinstaller==6.11.1                  # Create executables (only needed for building)
